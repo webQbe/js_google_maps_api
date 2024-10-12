@@ -42,7 +42,20 @@
                 // use a custom icon
                 icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
 
-            })
+            });
+
+            // Add a pop up to marker
+            var infoWindow = new google.maps.InfoWindow({
+                content: '<h1>Gampaha, WP</h1>'
+            });
+
+            // add listener to marker
+            marker.addListener('click', function(){
+
+                infoWindow.open(map, marker);
+
+            });
+
         }
     </script>
 
