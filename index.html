@@ -57,22 +57,34 @@
 
             }); */
 
+            /* ARRAY OF MARKERS */
 
-            // location 1
-            addMarker({coords:{lat:7.0840,lng:80.0098}});
+            var markers = [
+                        {
+                            coords:{lat:6.9271,lng:79.8612},
+                            iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                            content: '<h1>Colombo, WP</h1>',
+                        },
 
-            // location 2
-            addMarker({
-                coords:{lat:6.9271,lng:79.8612},
-                iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-                content: '<h1>Colombo, WP</h1>',
+                        {
+                            coords:{lat:7.0840,lng:80.0098}, 
+                            content: '<h1>Gampaha, WP</h1>',
+                        },
 
-            });
+                        {
+                            coords:{lat:7.2906,lng:80.6337}
+                        }
 
-            // location 3
-            addMarker({coords:{lat:7.2906,lng:80.6337}});
+                    ];
 
 
+            // loop through markers array
+            for(var i = 0; i < markers.length; i++){
+
+                // pass current marker to addMarker()
+                addMarker(markers[i]);
+
+            }
 
             
             /* ADD MARKER FUNCTION */
@@ -83,7 +95,6 @@
                 var marker = new google.maps.Marker({
                     position: props.coords, // get coords from props
                     map: map,
-                    // icon: props.iconImage // get iconImage from props
 
             });
 
