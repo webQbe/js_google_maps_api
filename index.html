@@ -23,22 +23,32 @@
 
             var options = {
 
+                // MAP OPTIONS
                 // specify zoom & centered location
                 zoom: 12,
                 center: {lat: 7.0840, lng: 80.0098},
 
             };
 
+            // NEW MAP
             // Create a new map inside the map div
             var map = new google.maps.Map(document.getElementById('map'), options);
+
+            // ADD MARKER
+            var marker = new google.maps.Marker({
+
+                position: {lat: 7.0840, lng: 80.0098}, // marker position
+                map: map // add created map
+
+            })
         }
     </script>
 
     <!-- Google Maps API -->
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap">
     </script>
     <!-- Call initMap() when loading is finished -->
-
+     
 </body>
 </html>
