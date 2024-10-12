@@ -30,7 +30,8 @@
 
             };
 
-            // NEW MAP
+            /* NEW MAP */
+
             // Create a new map inside the map div
             var map = new google.maps.Map(document.getElementById('map'), options);
 
@@ -71,7 +72,9 @@
             addMarker({coords:{lat:7.2906,lng:80.6337}});
 
 
-            // ADD MARKER FUNCTION
+
+
+            /* ADD MARKER FUNCTION */
 
             // pass props
             function addMarker(props){
@@ -79,9 +82,20 @@
                 var marker = new google.maps.Marker({
                     position: props.coords, // get coords from props
                     map: map,
-                    icon: props.iconImage // get iconImage from props
+                    // icon: props.iconImage // get iconImage from props
 
             });
+
+
+            /* Avoid undefined value for icon */
+
+            // check for custom icon
+            if(props.iconImage){
+
+                // set icon image
+                marker.setIcon(props.iconImage);
+
+            }
         }
 
         }
