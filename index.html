@@ -64,7 +64,8 @@
             // location 2
             addMarker({
                 coords:{lat:6.9271,lng:79.8612},
-                iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png' 
+                iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                content: '<h1>Colombo, WP</h1>',
 
             });
 
@@ -73,7 +74,7 @@
 
 
 
-
+            
             /* ADD MARKER FUNCTION */
 
             // pass props
@@ -87,13 +88,28 @@
             });
 
 
-            /* Avoid undefined value for icon */
+            /* Avoid undefined values */
 
             // check for custom icon
             if(props.iconImage){
 
                 // set icon image
                 marker.setIcon(props.iconImage);
+
+            }
+
+            // check for content
+            if(props.content){
+
+            var infoWindow = new google.maps.InfoWindow({
+                content: props.content
+            });
+
+            marker.addListener('click', function(){
+
+                infoWindow.open(map, marker);
+
+            });
 
             }
         }
