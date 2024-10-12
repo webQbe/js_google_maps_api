@@ -25,7 +25,7 @@
 
                 // MAP OPTIONS
                 // specify zoom & centered location
-                zoom: 12,
+                zoom: 10,
                 center: {lat: 7.0840, lng: 80.0098},
 
             };
@@ -34,7 +34,7 @@
             // Create a new map inside the map div
             var map = new google.maps.Map(document.getElementById('map'), options);
 
-            // ADD MARKER
+            /* // ADD MARKER
             var marker = new google.maps.Marker({
 
                 position: {lat: 7.0840, lng: 80.0098}, // marker position
@@ -54,7 +54,25 @@
 
                 infoWindow.open(map, marker);
 
+            }); */
+
+
+            // location 1
+            addMarker({lat:7.0840,lng:80.0098});
+
+            // location 2
+            addMarker({lat:6.9271,lng:79.8612});
+
+            // ADD MARKER FUNCTION
+            function addMarker(coords){
+
+                var marker = new google.maps.Marker({
+                    position: coords, 
+                    map: map,
+                    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+
             });
+        }
 
         }
     </script>
