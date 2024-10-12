@@ -58,18 +58,28 @@
 
 
             // location 1
-            addMarker({lat:7.0840,lng:80.0098});
+            addMarker({coords:{lat:7.0840,lng:80.0098}});
 
             // location 2
-            addMarker({lat:6.9271,lng:79.8612});
+            addMarker({
+                coords:{lat:6.9271,lng:79.8612},
+                iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png' 
+
+            });
+
+            // location 3
+            addMarker({coords:{lat:7.2906,lng:80.6337}});
+
 
             // ADD MARKER FUNCTION
-            function addMarker(coords){
+
+            // pass props
+            function addMarker(props){
 
                 var marker = new google.maps.Marker({
-                    position: coords, 
+                    position: props.coords, // get coords from props
                     map: map,
-                    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+                    icon: props.iconImage // get iconImage from props
 
             });
         }
